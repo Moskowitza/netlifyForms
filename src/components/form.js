@@ -57,7 +57,7 @@ const Form = () => {
       </p>
       <p>
         <label htmlFor="address">
-          Email
+          Address
           <input
             type="address"
             name="address"
