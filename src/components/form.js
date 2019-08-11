@@ -35,14 +35,14 @@ const Form = ({ identity }) => {
 
     e.preventDefault()
   }
-  const getFormData = () => {
-    axios(
-      `https://netlifyforms.netlify.com/.netlify/functions/getUserInfo?id=${id}`
-    )
-      .then(x => x.json())
-      .then(console.log)
-  }
-  getFormData()
+  // const getFormData = () => {
+  //   axios(
+  //     `https://netlifyforms.netlify.com/.netlify/functions/getUserInfo?id=${id}`
+  //   )
+  //     .then(x => x.json())
+  //     .then(console.log)
+  // }
+  // getFormData()
   return (
     // <form form-name="contact" method="POST" data-netlify="true">
     <form onSubmit={e => handleSubmit(e)}>
