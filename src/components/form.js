@@ -1,10 +1,32 @@
 import React, { useState } from "react"
 
+const encode = data => {
+  return Object.keys(data)
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join("&")
+}
 const Form = () => {
   const [userName, setUserName] = useState("")
   const [email, setEmail] = useState("")
+  const handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "contact",
+        userName,
+        email,
+      }),
+    })
+      .then(() => alert("Success!"))
+      .catch(error => alert(error))
+
+    e.preventDefault()
+  }
+
   return (
-    <form form-name="contact" method="POST" data-netlify="true">
+    // <form form-name="contact" method="POST" data-netlify="true">
+    <form onSubmit={e => handleSubmit(e)}>
       <p>
         <label htmlFor="userName">
           User Name
