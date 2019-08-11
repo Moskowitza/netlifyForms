@@ -14,7 +14,7 @@ const Form = ({ identity }) => {
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
   const handleSubmit = e => {
-    fetch("/", {
+    axios("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
