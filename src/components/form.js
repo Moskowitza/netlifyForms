@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import axios from 'axios';
+import axios from "axios"
 
 const encode = data => {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join("&")
 }
-const Form = ({identity}) => {
-  const {user}=identity;
-  const id=user.id
+const Form = ({ identity }) => {
+  const { user } = identity
+  const { id } = user
   const [userName, setUserName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
@@ -34,20 +34,10 @@ const Form = ({identity}) => {
 
     e.preventDefault()
   }
-  const getFormData=()=>{
+  const getFormData = () => {
     axios(`.netlify/functions/getUserInfo?id=${user.id}`)
-    .then(x => x.json())
-    .then(x => {
-        this.setState({reviews: x})
-    })
-
-if(netlifyIdentity.currentUser() != null){
-    this.setState({loggedIn: true});
-}
-
-netlifyIdentity.on("login", user => this.setState({loggedIn: true}));
-netlifyIdentity.on("logout", () => this.setState({loggedIn: false}));
-}
+      .then(x => x.json())
+      .then(console.log)
   }
   return (
     // <form form-name="contact" method="POST" data-netlify="true">
