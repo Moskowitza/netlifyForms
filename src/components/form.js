@@ -4,7 +4,7 @@ const Form = () => {
   const [userName, setUserName] = useState("")
   const [email, setEmail] = useState("")
   return (
-    <form name="contact" netlify>
+    <form name="contact" method="POST" data-netlify="true">
       <p>
         <label htmlFor="userName">
           User Name
