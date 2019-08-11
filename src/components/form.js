@@ -18,8 +18,7 @@ const Form = ({ identity }) => {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": "contact",
-        // We can add the userID into the form submission
+        "form-name": "contact-address",
         id,
         userName,
         email,
@@ -30,6 +29,7 @@ const Form = ({ identity }) => {
         alert("Success!")
         setUserName("")
         setEmail("")
+        setAddress("")
       })
       .catch(error => alert(error))
 
