@@ -9,6 +9,7 @@ const encode = data => {
 const Form = ({ identity }) => {
   const { user } = identity
   const { id } = user
+  console.log(user, id)
   const [userName, setUserName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
@@ -35,10 +36,11 @@ const Form = ({ identity }) => {
     e.preventDefault()
   }
   const getFormData = () => {
-    axios(`.netlify/functions/getUserInfo?id=${user.id}`)
+    axios(`.netlify/functions/getUserInfo?id=${id}`)
       .then(x => x.json())
       .then(console.log)
   }
+  getFormData()
   return (
     // <form form-name="contact" method="POST" data-netlify="true">
     <form onSubmit={e => handleSubmit(e)}>
