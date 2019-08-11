@@ -47,6 +47,7 @@ const Form = ({ identity }) => {
     // <form form-name="contact" method="POST" data-netlify="true">
     <form onSubmit={e => handleSubmit(e)}>
       <p>
+        New Form
         <label htmlFor="userName">
           User Name
           <input
