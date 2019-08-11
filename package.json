@@ -13,10 +13,13 @@
     "gatsby-plugin-sharp": "^2.2.11",
     "gatsby-source-filesystem": "^2.1.9",
     "gatsby-transformer-sharp": "^2.2.6",
+    "netlify-identity-widget": "^1.5.5",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-netlify-identity": "^0.1.9",
+    "react-netlify-identity-widget": "^0.1.4"
   },
   "devDependencies": {
     "prettier": "^1.18.2"
