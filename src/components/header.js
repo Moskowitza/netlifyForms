@@ -48,7 +48,7 @@ const Header = ({ siteTitle }) => {
         </button>
       </div>
       <div style={{ background: `white` }}>
-        {isLoggedIn ? <Link to="userSetting">User</Link> : ""}
+        {isLoggedIn ? <Link to="userSettings">User</Link> : ""}
       </div>
 
       <IdentityModal

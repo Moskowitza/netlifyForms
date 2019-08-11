@@ -9,7 +9,10 @@ const User = () => {
 
   return (
     <>
-      <h1>{`You are logged in as${identity.user.user_metadata.full_name}`}      </h1>
+      <h1>
+{`You are logged in as${identity.user.user_metadata.full_name}`}
+{' '}
+ </h1>
       <pre>{JSON.stringify(identity, null, 4)}</pre>
       <Form identity={identity} />
     </>
