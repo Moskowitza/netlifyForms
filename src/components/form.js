@@ -8,6 +8,7 @@ const encode = data => {
 const Form = () => {
   const [userName, setUserName] = useState("")
   const [email, setEmail] = useState("")
+  const [address, setAddress] = useState("")
   const handleSubmit = e => {
     fetch("/", {
       method: "POST",
@@ -16,9 +17,14 @@ const Form = () => {
         "form-name": "contact",
         userName,
         email,
+        address,
       }),
     })
-      .then(() => alert("Success!"))
+      .then(() => {
+        alert("Success!")
+        setUserName("")
+        setEmail("")
+      })
       .catch(error => alert(error))
 
     e.preventDefault()
@@ -46,6 +52,17 @@ const Form = () => {
             name="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
+          />
+        </label>
+      </p>
+      <p>
+        <label htmlFor="address">
+          Email
+          <input
+            type="address"
+            name="address"
+            value={address}
+            onChange={e => setAddress(e.target.value)}
           />
         </label>
       </p>
