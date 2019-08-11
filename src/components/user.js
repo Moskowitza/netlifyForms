@@ -5,13 +5,13 @@ import Form from "./form"
 const User = () => {
   const url = `https://gatsbyauthvid.netlify.com/`
 
-  const user = useIdentityContext(url)
+  const identity = useIdentityContext(url)
 
   return (
     <>
-      <h1>{`You are logged in as${user.user.user_metadata.full_name}`}      </h1>
+      <h1>{`You are logged in as${identity.user.user_metadata.full_name}`}      </h1>
       <pre>{JSON.stringify(user, null, 4)}</pre>
-      <Form />
+      <Form identity={identity} />
     </>
   )
 }

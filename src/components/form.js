@@ -1,11 +1,14 @@
 import React, { useState } from "react"
+import axios from 'axios';
 
 const encode = data => {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join("&")
 }
-const Form = () => {
+const Form = ({identity}) => {
+  const {user}=identity;
+  const id=user.id
   const [userName, setUserName] = useState("")
   const [email, setEmail] = useState("")
   const [address, setAddress] = useState("")
@@ -15,6 +18,8 @@ const Form = () => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
         "form-name": "contact",
+        // We can add the userID into the form submission
+        id,
         userName,
         email,
         address,
@@ -29,7 +34,21 @@ const Form = () => {
 
     e.preventDefault()
   }
+  const getFormData=()=>{
+    axios(`.netlify/functions/getUserInfo?id=${user.id}`)
+    .then(x => x.json())
+    .then(x => {
+        this.setState({reviews: x})
+    })
 
+if(netlifyIdentity.currentUser() != null){
+    this.setState({loggedIn: true});
+}
+
+netlifyIdentity.on("login", user => this.setState({loggedIn: true}));
+netlifyIdentity.on("logout", () => this.setState({loggedIn: false}));
+}
+  }
   return (
     // <form form-name="contact" method="POST" data-netlify="true">
     <form onSubmit={e => handleSubmit(e)}>
