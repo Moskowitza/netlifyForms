@@ -36,7 +36,9 @@ const Form = ({ identity }) => {
     e.preventDefault()
   }
   const getFormData = () => {
-    axios(`.netlify/functions/getUserInfo?id=${id}`)
+    axios(
+      `https://netlifyforms.netlify.com/.netlify/functions/getUserInfo?id=${id}`
+    )
       .then(x => x.json())
       .then(console.log)
   }
